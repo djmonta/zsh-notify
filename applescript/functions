@@ -28,6 +28,8 @@ function is-terminal-active() {
 
         if [[ "$TERM_PROGRAM" == 'iTerm.app' ]] || [[ -n "$ITERM_SESSION_ID" ]]; then
             term=iterm2
+        elif [[ "$TERM_PROGRAM" == 'ghostty' ]] || [[ -n "$TERM_SESSION_ID" ]]; then
+            term=ghostty
         elif [[ "$TERM_PROGRAM" == 'Apple_Terminal' ]] || [[ -n "$TERM_SESSION_ID" ]]; then
             term=apple-terminal
         else
@@ -74,6 +76,8 @@ function zsh-notify() {
 
     if [[ "$TERM_PROGRAM" == 'iTerm.app' ]] || [[ -n "$ITERM_SESSION_ID" ]]; then
         app_id="com.googlecode.iterm2"
+    elif [[ "$TERM_PROGRAM" == 'ghostty' ]] || [[ -n "$TERM_SESSION_ID" ]]; then
+        app_id="com.mitchellh.ghostty"
     elif [[ "$TERM_PROGRAM" == 'Apple_Terminal' ]] || [[ -n "$TERM_SESSION_ID" ]]; then
         app_id="com.apple.terminal"
     fi
